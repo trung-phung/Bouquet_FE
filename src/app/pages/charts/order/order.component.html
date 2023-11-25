@@ -1,0 +1,48 @@
+<h1 id="title" class="title">Message</h1>
+
+
+<div class="container">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th *ngIf="isAdmin">ID</th>
+        <th>receiverName</th>
+        <th>deliveryAddress</th>
+        <th>date</th>
+        <th>userID</th>
+        <th>occasionID</th>
+        <th>customMessage</th>
+        <th>status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of data">
+        <td *ngIf="isAdmin"><span>{{order.id}}</span></td>
+        <td><span>{{order.receiver_Name}}</span></td>
+        <td><span>{{order.delivery_Address}}</span></td>
+        <td><span>{{order.date}}</span></td>
+        <td><span>{{order.user_ID}}</span></td>
+        <td><span>{{order.occasion_ID}}</span></td>
+        <td><span>{{order.custom_Message}}</span></td>
+        <td><span>{{order.status}}</span></td>
+        <td *ngIf="order.status =='I'"><span>
+            <button (click)="cancel(order.id)">
+              Cancel
+            </button>
+          </span></td>
+        <td *ngIf="isAdmin && order.status =='I'"><span>
+            <button (click)="approve(order.id)">
+              Approve
+            </button>
+          </span></td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>

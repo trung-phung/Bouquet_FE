@@ -1,0 +1,33 @@
+<h1 id="title" class="title">Login</h1>
+
+<form (ngSubmit)="test()" [formGroup]="checkoutForm" aria-labelledby="title">
+
+  <div class="form-control-group">
+    <label class="label" for="email">Email address:</label>
+    <input nbInput fullWidth name="email" formControlName="email" id="email" placeholder="Email address"
+      fieldSize="large" autofocus>
+
+  </div>
+
+  <div class="form-control-group">
+    <span class="label-with-link">
+      <label class="label" for="password">Password:</label>
+    </span>
+    <input nbInput fullWidth name="password" formControlName="password" type="password" id="password"
+      placeholder="Password" fieldSize="large">
+  </div>
+
+  <div class="form-control-group accept-group">
+    <nb-checkbox name="rememberMe" [(ngModel)]="user.rememberMe" *ngIf="rememberMe">Remember me</nb-checkbox>
+  </div>
+
+  <button nbButton fullWidth status="primary" size="large" [disabled]="submitted " [class.btn-pulse]="submitted">
+    Log In
+  </button>
+</form>
+
+
+
+<section class="another-action" aria-label="Register">
+  Don't have an account? <a class="text-link" routerLink="../register">Register</a>
+</section>

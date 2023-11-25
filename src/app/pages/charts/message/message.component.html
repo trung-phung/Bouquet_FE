@@ -1,0 +1,43 @@
+<h1 id="title" class="title">Message</h1>
+
+
+<div class="container">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let message of data">
+        <td><span>{{message.occasion_ID}}</span></td>
+        <td><span>{{message.message}}</span></td>
+        <td><span>
+            <button (click)="delete(message.occasion_ID)">
+              Delete
+            </button>
+          </span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<form (ngSubmit)="create()" [formGroup]="checkoutForm" aria-labelledby="title">
+
+  <div class="form-control-group">
+    <label class="label" for="message">Add Message:</label>
+    <input nbInput fullWidth name="message" formControlName="message" id="message" placeholder="Message"
+      fieldSize="large" autofocus>
+
+  </div>
+  <button nbButton fullWidth status="primary" size="large" [disabled]="submitted " [class.btn-pulse]="submitted">
+    Add
+  </button>
+</form>

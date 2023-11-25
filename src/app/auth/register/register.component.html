@@ -1,0 +1,51 @@
+<h1 id="title" class="title">Register</h1>
+
+
+
+<form (ngSubmit)="register()" [formGroup]="checkoutForm" aria-labelledby="title">
+
+  <div class="form-control-group">
+    <label class="label" for="fname">FName:</label>
+    <input nbInput id="fname" formControlName="fname" name="FName" placeholder="FName" autofocus fullWidth
+      fieldSize="large">
+  </div>
+  <div class="form-control-group">
+    <label class="label" for="lname">LName:</label>
+    <input nbInput id="lname" name="LName" formControlName="lname" placeholder="LName" autofocus fullWidth
+      fieldSize="large">
+  </div>
+
+  <div class="form-control-group">
+    <label class="label" for="phone">Phone:</label>
+    <input type="number" id="phone" name="Phone" formControlName="phone" placeholder="Phone" fullWidth
+      fieldSize="large">
+  </div>
+
+  <div class="form-control-group">
+    <label class="label" for="address">Address:</label>
+    <input nbInput id="address" name="Address" formControlName="address" placeholder="Address" fullWidth
+      fieldSize="large">
+  </div>
+
+  <div class="form-control-group">
+    <label class="label" for="username">UserName:</label>
+    <input nbInput id="username" name="username" formControlName="username" placeholder="UserName" fullWidth
+      fieldSize="large">
+  </div>
+
+  <div class="form-control-group">
+    <label class="label" for="password">Password:</label>
+    <input nbInput type="password" id="password" formControlName="password" name="password" placeholder="Password"
+      fullWidth fieldSize="large">
+  </div>
+
+
+
+  <button nbButton fullWidth status="primary" size="large" [disabled]="submitted" [class.btn-pulse]="submitted">
+    Register
+  </button>
+</form>
+
+<section class="another-action" aria-label="Sign in">
+  Already have an account? <a class="text-link" routerLink="../login">Log in</a>
+</section>

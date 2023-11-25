@@ -1,0 +1,66 @@
+<h1 id="title" class="title">Create Order</h1>
+
+
+<div class="container">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Photo</th>
+        <!-- <th>Buy</th> -->
+      </tr>
+    </thead>
+    <tbody>
+
+      <td><span>{{data?.name}}</span></td>
+      <td><span>{{data?.price}}</span></td>
+      <td><span><img src={{data?.photo}} width="200" height="200"></span></td>
+
+    </tbody>
+  </table>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<form (ngSubmit)="create()" [formGroup]="checkoutForm" aria-labelledby="title">
+
+  <div class="form-control-group ">
+    <label class="label" for="receiverName">receiverName:</label>
+    <input nbInput fullWidth name="receiverName" formControlName="receiverName" id="receiverName"
+      placeholder="receiverName" fieldSize="large" autofocus>
+  </div>
+  <div class="form-control-group">
+    <label class="label" for="deliveryAddress">deliveryAddress:</label>
+    <input nbInput fullWidth name="deliveryAddress" formControlName="deliveryAddress" id="deliveryAddress"
+      fieldSize="large" autofocus>
+  </div>
+  <div class="form-control-group ">
+    <label class="label" for="occasion">occasion:</label>
+    <select fullWidth name="occasion" formControlName="occasion" id="occasion" fieldSize="large" autofocus>
+      <option>--Select--</option>
+      <option *ngFor="let mess of message">{{mess.message}}</option>
+    </select>
+  </div>
+  <div class="form-control-group">
+    <label class="label" for="phone">phone:</label>
+    <input type="number" fullWidth name="phone" formControlName="phone" id="phone" fieldSize="large" autofocus>
+  </div>
+  <div class="form-control-group">
+    <label class="label" for="date">date:</label>
+    <input type="datetime-local" name="date" formControlName="date" id="date" fieldSize="large" autofocus>
+  </div>
+  <div class="form-control-group">
+    <label class="label" for="date">customMessage:</label>
+    <input nbInput fullWidth name="customMessage" formControlName="customMessage" id="customMessage" fieldSize="large"
+      autofocus>
+  </div>
+
+  <button nbButton fullWidth status="primary" size="large" [disabled]="submitted " [class.btn-pulse]="submitted">
+    Order
+  </button>
+</form>
